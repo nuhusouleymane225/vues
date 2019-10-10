@@ -98,16 +98,16 @@
             </div>
         </div>
         <div class="alert alert-primary" role="alert">
-            <div class="row">
-                    <button v-if="dataisload" v-on:click=onload() type="button" class="btn btn-primary">Primary</button>
+            <button v-on:click=onload() type="button" class="btn btn-primary">Primary</button>
+            <div v-if="dataisload" class="row">
                 <div v-for="item in dataapi" class="col-md-4">
                     <div class="card">
                         <div class="card-body">
                             <p><b>Nom:</b> ${ item.name }</p>
                             <p><b>Prénom:</b> ${ item.username }</p>
-                            <p><b>email:</b> <a href="#">${ item.email }</a></p>
-                            <p><b>Phone:</b> <a href="#">${ item.phone }</a></p>
-                            <p><b>Site web:</b> <a href="#">${ item.website }</a></p>
+                            <p><b>email:</b> <a mailto=item.email>${ item.email }</a></p>
+                            <p><b>Phone:</b> <a href=item.phone>${ item.phone }</a></p>
+                            <p><b>Site web:</b> <a :href=item.website>${ item.website }</a></p>
                         </div>
                     </div>    
                 </div>
@@ -151,6 +151,9 @@
                 dataisload: false,
             },
             delimiters:["${","}"],
+            mounted(){
+                this.onload();
+            },
             methods:{
                 affichprimary: function(){
                     this.primary = true;
@@ -193,9 +196,9 @@
                     //axios.defaults.xsrfHeaderName = 'X-CSRFToken'
                     axios.get('https://jsonplaceholder.typicode.com/users')
                         .then(response => {
-                            console.log(response.data)
-                            this.dataapi=response.data
-                            this.data =true
+                            console.log(response.data);
+                            this.dataapi=response.data;
+                            this.data =true;
                         })
                         .catch((err) => {
                             console.log(err);
