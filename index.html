@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<div class="" id="app">
+    <h1 class="text-center">Tutoriel VueJs</h1>
+    <hr>        
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h1>Variable</h1>
+                ${ message }
+                <p>Nom :${nom}</p>
+                <p>Prénom: ${prenom}</p>
+                <a :href="lien">visiter NaN</a>
+            </div>
+            <div class="col-md-5">
+                <h1>condition</h1>
+                <div v-if="primary" class="alert alert-primary" role="alert">
+                    A simple primary alert—check it out!
+                </div>
+                <div v-if="secondary" class="alert alert-secondary" role="alert">
+                    A simple secondary alert—check it out!
+                </div>
+                <div v-if="success" class="alert alert-success" role="alert">
+                    A simple success alert—check it out!
+                </div>
+                <div v-if="danger" class="alert alert-danger" role="alert">
+                    A simple danger alert—check it out!
+                </div>
+                <hr>
+                <button v-on:click="affichprimary" type="button" class="btn btn-primary">Primary</button>
+                <button v-on:click="affichsecondary" type="button" class="btn btn-secondary">Secondary</button>
+                <button v-on:click="affichsuccess" type="button" class="btn btn-success">Success</button>
+                <button v-on:click="affichdanger" type="button" class="btn btn-danger">Danger</button>
+                <hr>
+                <button v-on:click="toutcacher" type="button" class="btn btn-warning">Warning</button>
+                <button v-on:click="toutafficher" type="button" class="btn btn-info">Info</button>
+            </div>
+            <div class="form-model">
+                <div class="">
+                    <div class="form-group">
+                            <div class="form-group">
+                                <h1>Form model</h1>
+                                <label for="exampleFormControlTextarea1">Example textarea</label>
+                                <textarea v-model = "chatmessage" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                    </div>
+                        
+                    <hr>
+                    <p>${ chatmessage }</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Html Vue</h1>
+                <hr>
+                <div class="alert alert-warning" role="alert">
+                    <div class="card">
+                        <div v-html="editor_text" class="card-body">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                    <h1>Notre Editeur</h1>
+                    <hr>
+                    <div class="alert alert-primary" role="alert">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Example textarea</label>
+                                    <textarea v-model= "editor_text" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <h1>For loop</h1>
+                <ol>
+                    <li v-for="todo in todos">
+                        ${ todo.text }
+                    </li>
+                </ol>
+            </div>
+        </div>
+        <div class="alert alert-primary" role="alert">
+            <div class="row">
+                    <button v-if="dataisload" v-on:click=onload() type="button" class="btn btn-primary">Primary</button>
+                <div v-for="item in dataapi" class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <p><b>Nom:</b> ${ item.name }</p>
+                            <p><b>Prénom:</b> ${ item.username }</p>
+                            <p><b>email:</b> <a href="#">${ item.email }</a></p>
+                            <p><b>Phone:</b> <a href="#">${ item.phone }</a></p>
+                            <p><b>Site web:</b> <a href="#">${ item.website }</a></p>
+                        </div>
+                    </div>    
+                </div>
+            </div>
+            
+        </div>
+        <div class="row">
+        </div>
+    </div>
+</div>
+
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- development version, includes helpful console warnings -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello Vue!',
+                nom: 'NaN',
+                prenom: '2019',
+                imageurl: 'https://cdn.pixabay.com/photo/2018/04/03/23/29/wordpress-3288420_1280.png',
+                lien: 'http://nan.ci',
+                primary: false,
+                secondary: false,
+                success: false,
+                danger: false,
+                chatmessage: 'salut',
+                editor_text:'<b>salut</b>',
+                todos: [
+                { text: 'Learn JavaScript' },
+                { text: 'Learn Vue' },
+                { text: 'Build something awesome' }
+                ],
+                dataapi: [],
+                dataisload: false,
+            },
+            delimiters:["${","}"],
+            methods:{
+                affichprimary: function(){
+                    this.primary = true;
+                    this.secondary = false;
+                    this.success = false;
+                    this.danger = false
+                },
+                affichsecondary: function(){
+                    this.secondary = true ;
+                    this.primary = false;
+                    this.success = false;
+                    this.danger = false
+                },
+                affichsuccess: function(){
+                    this.success = true ;
+                    this.secondary = false;
+                    this.primary = false;
+                    this.danger = false
+                },
+                affichdanger: function(){
+                    this.danger = true ;
+                    this.primary = false;
+                    this.secondary = false;
+                    this.success = false;
+                },
+                toutafficher: function(){
+                    this.danger = true ;
+                    this.primary = true;
+                    this.secondary = true;
+                    this.success = true;
+                },
+                toutcacher: function(){
+                    this.danger = false ;
+                    this.primary = false;
+                    this.secondary = false;
+                    this.success = false;
+                },
+                onload(){
+                    //axios.defaults.xsrfCookieName = 'csrftoken'
+                    //axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+                    axios.get('https://jsonplaceholder.typicode.com/users')
+                        .then(response => {
+                            console.log(response.data)
+                            this.dataapi=response.data
+                            this.data =true
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                    })
+                },
+            }
+        })
+    
+    </script>
+</body>
+</html>
